@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Culture Correlation",
+  "version": "1.1",
+  "description": "Shows cultural and historical context for words on a webpage.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "https://api.groq.com/*",
+    "https://en.wikipedia.org/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ]
+}
